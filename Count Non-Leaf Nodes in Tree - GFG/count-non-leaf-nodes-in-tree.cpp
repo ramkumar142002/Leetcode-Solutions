@@ -104,22 +104,22 @@ class Solution {
     //     return t;
     // }
     
-    int totalcount(Node *root){
-        if(root==NULL) return 0;
+    // int totalcount(Node *root){
+    //     if(root==NULL) return 0;
         
-        int left = totalcount(root->left);
-        int right = totalcount(root->right);
-        return 1 + left + right;
-    }    
+    //     int left = totalcount(root->left);
+    //     int right = totalcount(root->right);
+    //     return 1 + left + right;
+    // }    
     
     int leafcount(Node *root){
         if(root==NULL) return 0;
-        if(root->left==NULL && root->right==NULL) return 1;
-        return leafcount(root->right)+leafcount(root->left);
+        if(root->left==NULL && root->right==NULL) return 0;
+        return 1+leafcount(root->right)+leafcount(root->left);
     }
     int countNonLeafNodes(Node* root) {
         // Code here
-        return totalcount(root)-leafcount(root);
+        return leafcount(root);
     }
 };
 
