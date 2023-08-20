@@ -28,19 +28,22 @@ class Solution{
         //code here
         vector<vector<int>> dp(n,vector<int> (n+1,0));
         // return fun(n-1,price,n,dp);
-        for(int i=0;i<n+1;i++) dp[0][i]=i*price[0];
+        vector<int> prev(n+1,0),cur(n+1,0);
+        
+        for(int i=0;i<n+1;i++) prev[i]=i*price[0];
         
         for(int i=1;i<n;i++){
             for(int j=0;j<n+1;j++){
-                int notake=0+dp[i-1][j];
+                int notake=0+prev[j];
                 int take=INT_MIN;
                 int rod=i+1;
-                if(rod<=j) take=price[i]+dp[i][j-rod];
+                if(rod<=j) take=price[i]+cur[j-rod];
                 
-                dp[i][j]=max(take,notake);
+                cur[j]=max(take,notake);
             }
+            prev=cur;
         }
-        return dp[n-1][n];
+        return prev[n];
     }
 };
 
