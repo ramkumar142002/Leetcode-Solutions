@@ -11,6 +11,7 @@ public:
                 else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
             }
         }
+        // total size-longestpalindromeicsubsequence
         return s.size()-dp[s.size()][r.size()];
     }
 };
