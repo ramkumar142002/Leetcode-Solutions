@@ -22,8 +22,22 @@ public:
         // code here
         arr.push_back(1);
         arr.insert(arr.begin(),1);
-        vector<vector<int>> dp(N+1,vector<int>(N+1,-1));
-        return fun(arr,1,N,dp);
+        vector<vector<int>> dp(N+2,vector<int>(N+2,0));
+        // return fun(arr,1,N,dp);
+        
+        for(int i=N;i>=1;i--){
+            for(int j=1;j<=N;j++){
+                if(i>j) continue;
+                int maxi=INT_MIN;
+                for(int ind=i;ind<=j;ind++){
+                    int cost=(arr[ind]*arr[i-1]*arr[j+1])+dp[i][ind-1]+dp[ind+1][j];
+                    maxi=max(maxi,cost);
+                }
+                dp[i][j]=maxi;
+            }
+            
+        }
+        return dp[1][N];
     }
 };
 
