@@ -27,11 +27,6 @@ public:
         vector<int> a;
         for(int i=0;i<n;i++)a.push_back(arr[i]);
         sort(a.begin(),a.end());
-        map<int,int> m;
-        for(int i=0;i<n;i++)
-        {
-            m[a[i]]++;
-        }
         int i=0,j=n-1;
         int c=0;
         while(i<j){
