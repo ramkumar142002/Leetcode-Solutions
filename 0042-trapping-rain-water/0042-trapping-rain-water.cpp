@@ -17,14 +17,6 @@ public:
             sum += min(maxl[i],maxr[i]) - height[i];
         }
         
-        for(int i=0;i<n;i++){
-            cout<<maxl[i]<<" ";
-        }
-        cout<<endl;
-        for(int i=0;i<n;i++){
-            cout<<maxr[i]<<" ";
-        }
-        
         return sum;
     }
 };
