@@ -10,8 +10,8 @@ using namespace std;
 class Solution{
 public:
     int fun(int ind,int w,int val[],int wt[],vector<vector<int>> &dp){
-        if(ind == 0){
-            if(wt[ind]<=w) return val[ind]+fun(ind,w-wt[ind],val,wt,dp);
+        if(ind == -1){
+            //if(w%wt[ind]==0) return val[ind]*(w/wt[ind]);
             return 0;
         }
         
