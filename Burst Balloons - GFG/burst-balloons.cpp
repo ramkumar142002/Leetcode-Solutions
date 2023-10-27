@@ -13,7 +13,7 @@ public:
         int maxi=INT_MIN;
         
         for(int ind=i;ind<=j;ind++){
-            int cost=(arr[ind]*arr[i-1]*arr[j+1])+fun(arr,i,ind-1,dp)+fun(arr,ind+1,j,dp);
+            int cost=(arr[ind]*arr[ind-1]*arr[ind+1])+fun(arr,i,ind-1,dp)+fun(arr,ind+1,j,dp);
             maxi=max(maxi,cost);
         }
         return dp[i][j]=maxi;
