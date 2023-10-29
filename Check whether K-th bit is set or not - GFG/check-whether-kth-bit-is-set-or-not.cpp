@@ -17,16 +17,19 @@ class Solution
     {
         // Your code here
         // It can be a one liner logic!! Think of it!!
-        if(n%2!=0 && k==0) return true;
-        while(n!=0){
-            int bit = n%2;
-            if(k==0){
-                return (bit==1);;
-            }
-            n /= 2;
-            k--;
-        }
-        return false;
+        
+        // if(n%2!=0 && k==0) return true;
+        // while(n!=0){
+        //     int bit = n%2;
+        //     if(k==0){
+        //         return (bit==1);;
+        //     }
+        //     n /= 2;
+        //     k--;
+        // }
+        // return false;
+        
+        return (n>>k) & 1;
     }
 };
 
