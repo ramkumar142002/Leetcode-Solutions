@@ -34,14 +34,9 @@ public:
             int temp = 0;
             
             while(digits.size()!=0 && digits[digits.size()-1] == 9){
-                temp++;;
-                // c++;
+                temp++;
                 digits.pop_back();
-                // temp += 1;
             }
-            // temp += 1;
-            
-            // string s = to_string(temp);
             
             
             
