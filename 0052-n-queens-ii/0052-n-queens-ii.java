@@ -6,23 +6,22 @@ class Solution {
                 board[i][j] = '.';
             }
         }
-        
-        List<List<String>> ans = new ArrayList<>() ;
-        queen(board,ans,0,n);
-        return ans.size();
+        return queen(board,0,n);
     }
-    public void queen(char[][] board,List<List<String>> ans,int row,int n){
+    public int queen(char[][] board,int row,int n){
         if(row == n){
-            ans.add(converter(board));
-            return ;
+            return 1;
         }
+        
+        int count = 0;
         for(int col = 0;col<n;col++){
             if(isSafe(board,row,col)){
                 board[row][col] = 'Q';
-                queen(board,ans,row+1,n);
+                count = count + queen(board,row+1,n);
                 board[row][col] = '.';
             }
         }
+        return count;
     }
     public boolean isSafe(char[][] board,int row,int col){
         for(int i = 0;i<row;i++){
@@ -38,13 +37,5 @@ class Solution {
         }
         
         return true;
-    }
-    public List<String> converter(char[][] board){
-        List<String> arr = new ArrayList<>();
-        for(int i = 0;i<board.length;i++){
-            String row = new String(board[i]);
-            arr.add(row);
-        }
-        return arr;
     }
 }
