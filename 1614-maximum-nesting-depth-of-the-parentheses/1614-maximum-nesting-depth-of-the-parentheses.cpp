@@ -9,9 +9,7 @@ public:
             }
             else if(s[i] == ')'){
                 cout<<maxAns<<" "<<st.size()<<endl;
-                if(st.size()>maxAns){
-                    maxAns = st.size();
-                }
+                maxAns = max(maxAns,(int)(st.size()));
                 st.pop();
             }
         }
